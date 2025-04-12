@@ -1,30 +1,142 @@
 /**
- * @name Discord2024
+ * @name Discord2024Rebuild
  * @author realdcre
- * @description A theme based on the 2024 Discord UI dump by realdcre
  * @version 1.0.0
+ * @description Faithful recreation of the 2024 Discord UI before the redesign.
  * @source https://github.com/realdcre/2024DiscordCSSDump
  */
 
- @import url("https://realdcre.github.io/2024DiscordCSSDump/0ff42a9912bbdfab.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/12633.4b47d0f658ccba94.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/1b643de57fd9ed8a.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/21f2cb34ed65d14d.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/2a2e362446c06506.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/3fb0e78498561a94.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/4971588dc68349b6.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/4b9908c4c8ade664.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/62e94dd2836c44c2.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/85c57a144ec9baaf.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/89208cc5c6e71039.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/90dc69069fd74a67.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/a61af153ae5fb2df.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/a75468124daf3ba6.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/c92dfea899147121.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/d67ec2478985ef53.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/daecfc9f4010d7af.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/ddd8d7764ba29f83.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/e09ed0ce251ad4bd.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/ef026809020d898a.css");
- @import url("https://realdcre.github.io/2024DiscordCSSDump/fb6f622fd55ad00b.css");
- 
+/* CORE VARIABLES */
+:root {
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+  
+    --font-primary: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+    --shadow-low: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-medium: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-high: 0 4px 8px rgba(0,0,0,0.15);
+  }
+  
+  /* INCLUDED STYLES FROM 2024 DUMP */
+  @import url("https://realdcre.github.io/2024DiscordCSSDump/4971588dc68349b6.css");
+  @import url("https://realdcre.github.io/2024DiscordCSSDump/fb6f622fd55ad00b.css");
+  @import url("https://realdcre.github.io/2024DiscordCSSDump/daecfc9f4010d7af.css");
+  
+  /* OPTIONAL FIXES (OVERRIDES) */
+  .visual-refresh .guildIconImage_d5f3cd {
+    border-radius: 12px !important;
+    object-fit: cover;
+  }
+  
+  .guildName_d5f3cd,
+  .eventName_b5010b,
+  .inviteDestination_d5f3cd {
+    font-family: var(--font-primary) !important;
+    font-weight: 600;
+  }
+  
+  .channel_d5f3cd {
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+  }
+  
+  .wrapper_d5f3cd {
+    box-shadow: var(--shadow-medium);
+    background-color: var(--background-secondary);
+  }
+  
+  /* Tooltip and overlay corrections */
+  .tooltip_f84418,
+  .tooltip__5b400 {
+    border-radius: var(--radius-sm);
+    background-color: var(--background-floating);
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  
+  /* Rounded avatars, margins, hover effects, spacing precision */
+  .avatar__4cb8a,
+  .guildIcon_d5f3cd,
+  .channelIcon_d5f3cd {
+    border-radius: 12px !important;
+  }
+  
+  .hoverBarButton_f84418:hover {
+    background-color: var(--background-modifier-hover);
+    border-radius: 6px;
+  }
+  
+  .popoverReactionHoverBar_f84418 {
+    border-radius: 8px;
+    padding: 4px;
+  }
+  
+  /* Clean separation between items */
+  .separator_f84418 {
+    margin: 6px 12px;
+    background-color: var(--border-subtle);
+  }
+  
+  /* New badge spacing fix */
+  .newBadge_f84418 {
+    top: -10px;
+  }
+  
+  /* Font scaling */
+  .descriptionText__535f5,
+  .description_b5010b {
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--text-muted);
+  }
+  
+  /* Styles from fb6f622fd55ad00b.css */
+  .modalRoot__5b400{max-width:340px;background-color:var(--background-secondary)}
+  .modalHeader__5b400{overflow-x:visible;padding-bottom:8px;margin-bottom:24px}
+  .modalTop__5b400{box-sizing:border-box;display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:1fr;grid-template-areas:". img-frame close-btn";flex-flow:row nowrap;justify-content:space-between}
+  .iconFrame__5b400{grid-area:img-frame;height:60px}
+  .icon__5b400{position:relative;bottom:70px}
+  .closeBtn__5b400{grid-area:close-btn}
+  .modalContent__5b400{padding:0 16px 24px}
+  .contentHeader__5b400{justify-content:space-between;margin-bottom:8px}
+  .contentHeader__5b400,.refreshWrapper__5b400{display:flex;align-items:center}
+  .refreshWrapper__5b400{gap:4px;color:var(--text-muted);cursor:pointer}
+  .refreshWrapper__5b400:hover{color:var(--interactive-hover)}
+  .disabled__5b400{color:var(--text-muted);pointer-events:none}
+  .upperBodyText__5b400{text-align:center}
+  .targetList__5b400{display:flex;flex-flow:column nowrap;background-color:var(--background-primary);border:1px solid hsla(0,0%,100%,.06);border-radius:8px;box-shadow:var(--shadow-low)}
+  .targetItem__5b400{display:flex;flex-flow:row nowrap;gap:8px;align-items:center;padding:10px 12px}
+  .targetItem__5b400:not(:last-child){border-bottom:1px solid var(--background-modifier-accent)}
+  .footer__5b400{background-color:var(--background-secondary-alt)}
+  .colorTransition__5b400{transition:color .15s ease-in-out}
+  .footerCloseButton__5b400{padding:11px}
+  .accountsWrapper__5b400{display:flex;flex-direction:column;gap:8px}
+  .connectionRow__5b400{border-radius:8px;border:1px solid var(--border-subtle);overflow:hidden}
+  .connectionRowHeader__5b400{display:flex;background-color:var(--background-primary);align-items:center;justify-content:space-between;padding:10px 12px}
+  .connectionRowHeaderError__5b400{background-color:hsl(var(--background-primary-hsl)/.7)}
+  .connectionRowHeaderContent__5b400{display:flex;align-items:center;gap:8px}
+  .success__5b400{color:var(--text-positive)}
+  .error__5b400{color:var(--text-danger)}
+  .gameTile__5b400{height:16px;width:16px}
+  .errorRow__5b400{display:flex;align-items:center;gap:8px;border-top:1px solid var(--border-subtle);padding:10px 12px}
+  .errorsContainer__5b400{background:linear-gradient(180deg,hsl(var(--red-430-hsl)/.15),hsl(var(--red-430-hsl)/.02))}
+  .tooltip__5b400{display:flex;flex-direction:column;align-items:center;gap:2px}
+  .container_b5b7aa{width:100%;height:170px;box-sizing:border-box;border-radius:8px 8px 0 0;background-color:var(--background-secondary-alt);position:relative}
+  .positionContentOverBackground_b5b7aa{position:absolute;left:0;top:0;z-index:2}
+  .contents_b5b7aa,.positionContentOverBackground_b5b7aa{width:100%;height:100%;display:flex;flex-direction:column}
+  .contents_b5b7aa{box-sizing:border-box;padding:12px}
+  .heroAssetWrapper_b5b7aa{border-radius:8px 8px 0 0;overflow:hidden;position:absolute;left:0;top:0;width:100%;height:170px;z-index:1;display:flex;justify-content:center;align-items:center}
+  .heroAsset_b5b7aa{z-index:0;background-position:50%;background-size:cover;background-repeat:no-repeat;width:auto;height:100%}
+  .heroAsset_b5b7aa,.overlay_b5b7aa{border-radius:8px 8px 0 0}
+  .overlay_b5b7aa{z-index:1;position:absolute;left:0;top:0;width:100%;height:170px}
+  .darkThemeGradient_b5b7aa{background:linear-gradient(0deg,var(--primary-660) 0,hsl(var(--primary-660-hsl)/.95) 20.31%,hsl(var(--primary-660-hsl)/0))}
+  .lightThemeGradient_b5b7aa{background:linear-gradient(0deg,hsl(var(--black-hsl)/.7) 0,hsl(var(--black-hsl)/.5) 20.31%,hsl(var(--black-hsl)/0))}
+  .topRow_b5b7aa{display:flex;flex-direction:row;justify-content:flex-end}
+  .pill_b5b7aa{border-radius:6px;background:var(--brand-500);box-shadow:var(--shadow-low);display:flex;padding:2px 6px;align-items:center;margin-right:auto}
+  .eyebrowText_b5b7aa{font-weight:700;font-size:12px}
+  .utilButtonWrapper_b5b7aa{justify-self:flex-end;display:flex;justify-content:center;align-items:center;border-radius:50%;box-shadow:var(--shadow-medium);-webkit-backdrop-filter:blur(8px);backdrop
